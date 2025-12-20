@@ -1,7 +1,8 @@
 "use client";
 
+import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Question } from "@/lib/quiz/types";
+import { Question, Answer } from "@/lib/quiz/types";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { AnswerOption } from "./AnswerOption";
 
@@ -13,6 +14,18 @@ interface QuestionCardProps {
   isTransitioning?: boolean;
 }
 
+/**
+ * Fisher-Yates shuffle for randomizing answer order
+ */
+function shuffleAnswers(answers: Answer[]): Answer[] {
+  const shuffled = [...answers];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export function QuestionCard({
   question,
   questionNumber,
@@ -20,6 +33,12 @@ export function QuestionCard({
   onAnswer,
   isTransitioning = false,
 }: QuestionCardProps) {
+  // Shuffle answers once when the question changes
+  const shuffledAnswers = useMemo(
+    () => shuffleAnswers(question.answers),
+    [question.id] // eslint-disable-line react-hooks/exhaustive-deps
+  );
+
   const handleAnswerSelect = (points: number) => {
     if (!isTransitioning) {
       onAnswer(question.id, points);
@@ -61,9 +80,9 @@ export function QuestionCard({
           {question.text}
         </motion.h2>
 
-        {/* Answer options */}
+        {/* Answer options - shuffled */}
         <div className="space-y-3">
-          {question.answers.map((answer, index) => (
+          {shuffledAnswers.map((answer, index) => (
             <AnswerOption
               key={answer.id}
               answer={answer}
