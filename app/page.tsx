@@ -17,7 +17,7 @@ export default function HomePage() {
       >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <span className="text-lg font-semibold text-gray-700">
-            WorkplaceEscape
+            Do I Love My Job?
           </span>
           <Link
             href="/about"

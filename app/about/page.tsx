@@ -16,7 +16,7 @@ export default function AboutPage() {
       >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-lg font-semibold text-gray-700 hover:text-gray-800 transition-colors">
-            WorkplaceEscape
+            Do I Love My Job?
           </Link>
           <Link href="/quiz">
             <Button variant="secondary" size="sm">
@@ -44,7 +44,7 @@ export default function AboutPage() {
               >
                 <span className="text-4xl mb-4 block">📋</span>
                 <h1 className="text-3xl font-bold text-gray-800 mb-2">
-                  About WorkplaceEscape
+                  About Do I Love My Job?
                 </h1>
                 <p className="text-gray-500">
                   The website your HR department hopes you never find
@@ -62,7 +62,7 @@ export default function AboutPage() {
                   What is this?
                 </h2>
                 <p className="text-gray-600 leading-relaxed">
-                  WorkplaceEscape is a satirical quiz that helps you understand
+                  Do I Love My Job? is a satirical quiz that helps you understand
                   your current relationship with corporate life. It&apos;s meant to be
                   funny, relatable, and entirely harmless to share with your
                   colleagues (yes, even on LinkedIn).

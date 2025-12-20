@@ -9,21 +9,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "WorkplaceEscape - The Workplace Vibe Check",
+  title: "Do I Love My Job? - The Workplace Vibe Check",
   description: "Take the quiz your HR department hopes you never find. 5 questions. 2 minutes. The truth about your workplace survival level.",
-  keywords: ["workplace humor", "office quiz", "work life balance", "corporate satire", "funny quiz"],
-  authors: [{ name: "WorkplaceEscape" }],
+  keywords: ["workplace humor", "office quiz", "work life balance", "corporate satire", "funny quiz", "do i love my job"],
+  authors: [{ name: "Do I Love My Job?" }],
   openGraph: {
-    title: "WorkplaceEscape - The Workplace Vibe Check",
+    title: "Do I Love My Job? - The Workplace Vibe Check",
     description: "Let's find out if you love your job... or if you're just really good at pretending.",
-    url: "https://workplaceescape.com",
-    siteName: "WorkplaceEscape",
+    url: "https://doilovemyjob.com",
+    siteName: "Do I Love My Job?",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "WorkplaceEscape - The Workplace Vibe Check",
+    title: "Do I Love My Job? - The Workplace Vibe Check",
     description: "Take the quiz your HR department hopes you never find.",
   },
   robots: {

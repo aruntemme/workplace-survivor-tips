@@ -41,13 +41,13 @@ export function ResultCard({ resultType, score }: ResultCardProps) {
           href="/"
           className="text-gray-500 hover:text-gray-700 text-sm transition-colors"
         >
-          WorkplaceEscape
+          Do I Love My Job?
         </Link>
       </motion.header>
 
       {/* Main content */}
       <main className="flex-1 flex items-center justify-center px-4 py-6">
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-3xl">
           {/* Hero section - Emoji + Title + Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -95,82 +95,89 @@ export function ResultCard({ resultType, score }: ResultCardProps) {
             </motion.span>
           </motion.div>
 
-          {/* Main card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-          >
-            <GlassCard variant="elevated" padding="lg">
-              {/* Frustration meter - compact */}
-              <div className="mb-5">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-gray-500">Frustration Level</span>
-                  <span className={`text-xs font-medium ${frustrationLabel.color}`}>
-                    {frustrationLabel.text}
-                  </span>
-                </div>
-                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${frustrationPercent}%` }}
-                    transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-green-400 via-yellow-400 via-orange-400 to-red-500 rounded-full"
-                  />
-                </div>
-                <p className="text-right text-lg font-bold text-gray-700 mt-1">
-                  {frustrationPercent}%
+          {/* Two-column layout on desktop, stacked on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Left card - Description & Traits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
+            >
+              <GlassCard variant="elevated" padding="lg" className="h-full">
+                {/* Description - the main insight */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-5">
+                  {content.description}
                 </p>
-              </div>
 
-              {/* Description - the main insight */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-5">
-                {content.description}
-              </p>
-
-              {/* Traits as a compact grid */}
-              <div className="mb-5">
-                <p className="text-xs text-gray-400 uppercase tracking-wide mb-2">
-                  Signs you might recognize
-                </p>
-                <div className="grid grid-cols-2 gap-2">
+                {/* Traits list */}
+                <div className="space-y-2">
                   {content.traits.map((trait, index) => (
                     <motion.div
                       key={trait}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.6 + index * 0.05 }}
-                      className="flex items-start gap-2 text-xs text-gray-600"
+                      transition={{ delay: 0.5 + index * 0.05 }}
+                      className="flex items-start gap-2 text-sm text-gray-600"
                     >
                       <span className="text-gray-400 mt-0.5">•</span>
                       <span>{trait}</span>
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </GlassCard>
+            </motion.div>
 
-              {/* Survival tip - highlighted */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-                className="p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100/50"
-              >
-                <p className="text-xs font-medium text-purple-600 mb-1">
-                  💡 Survival Tip
-                </p>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  {content.survivalTip}
-                </p>
-              </motion.div>
-            </GlassCard>
-          </motion.div>
+            {/* Right card - Frustration meter & Survival tip */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <GlassCard variant="elevated" padding="lg" className="h-full flex flex-col">
+                {/* Frustration meter */}
+                <div className="mb-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs text-gray-500">Frustration Level</span>
+                    <span className={`text-xs font-medium ${frustrationLabel.color}`}>
+                      {frustrationLabel.text}
+                    </span>
+                  </div>
+                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${frustrationPercent}%` }}
+                      transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+                      className="h-full bg-gradient-to-r from-green-400 via-yellow-400 via-orange-400 to-red-500 rounded-full"
+                    />
+                  </div>
+                  <p className="text-right text-lg font-bold text-gray-700 mt-1">
+                    {frustrationPercent}%
+                  </p>
+                </div>
+
+                {/* Survival tip - highlighted */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="flex-1 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100/50"
+                >
+                  <p className="text-xs font-medium text-purple-600 mb-1">
+                    💡 Survival Tip
+                  </p>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    {content.survivalTip}
+                  </p>
+                </motion.div>
+              </GlassCard>
+            </motion.div>
+          </div>
 
           {/* Share section - outside main card for visual separation */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.75 }}
+            transition={{ delay: 0.7 }}
             className="mt-6"
           >
             <ShareButtons resultType={resultType} score={score} />
@@ -180,7 +187,7 @@ export function ResultCard({ resultType, score }: ResultCardProps) {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.85 }}
+            transition={{ delay: 0.8 }}
             className="mt-6 flex items-center justify-center gap-3"
           >
             <Link href="/quiz">

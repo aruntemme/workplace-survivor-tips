@@ -14,44 +14,25 @@ export function ProgressBar({ current, total, className }: ProgressBarProps) {
 
   return (
     <div className={cn("w-full", className)}>
-      {/* Progress dots */}
-      <div className="flex items-center justify-center gap-2 mb-4">
-        {Array.from({ length: total }).map((_, index) => (
-          <motion.div
-            key={index}
-            initial={false}
-            animate={{
-              scale: index === current - 1 ? 1.2 : 1,
-              backgroundColor:
-                index < current
-                  ? "#a855f7" // purple-500
-                  : index === current - 1
-                  ? "#a855f7"
-                  : "rgba(255, 255, 255, 0.5)",
-            }}
-            transition={{ duration: 0.3 }}
-            className={cn(
-              "w-2.5 h-2.5 rounded-full",
-              "transition-all duration-300"
-            )}
-          />
-        ))}
+      {/* Question counter */}
+      <div className="flex items-center justify-between mb-2">
+        <span className="text-xs font-medium text-gray-500">
+          {current} / {total}
+        </span>
+        <span className="text-xs text-gray-400">
+          {Math.round(progress)}%
+        </span>
       </div>
 
-      {/* Progress bar */}
-      <div className="h-1.5 w-full bg-white/30 rounded-full overflow-hidden">
+      {/* Sleek progress bar */}
+      <div className="h-1 w-full bg-black/5 rounded-full overflow-hidden backdrop-blur-sm">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="h-full bg-gradient-to-r from-purple-500 via-pink-500 to-sky-500 rounded-full"
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-sm"
         />
       </div>
-
-      {/* Question counter */}
-      <p className="text-center text-sm text-gray-500 mt-2">
-        Question {current} of {total}
-      </p>
     </div>
   );
 }

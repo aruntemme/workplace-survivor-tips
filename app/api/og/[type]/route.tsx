@@ -171,7 +171,7 @@ export async function GET(
               marginTop: 32,
             }}
           >
-            doilovemyjob.vercel.app
+            doilovemyjob.com
           </div>
         </div>
       </div>

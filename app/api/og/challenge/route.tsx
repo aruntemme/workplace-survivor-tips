@@ -97,7 +97,7 @@ export async function GET(request: NextRequest) {
               marginTop: 32,
             }}
           >
-            doilovemyjob.vercel.app
+            doilovemyjob.com
           </div>
         </div>
       </div>

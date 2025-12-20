@@ -27,14 +27,14 @@ export async function generateMetadata({
   // Validate result type
   if (!allResultTypes.includes(type as ResultType)) {
     return {
-      title: "Result Not Found | WorkplaceEscape",
+      title: "Result Not Found | Do I Love My Job?",
     };
   }
 
   const content = resultContent[type as ResultType];
   const scoreValue = score || "0";
 
-  const title = `I'm a ${content.title} | WorkplaceEscape`;
+  const title = `I'm a ${content.title} | Do I Love My Job?`;
   const description = content.shareTextTwitter;
   const ogImageUrl = `/api/og/${type}?score=${scoreValue}`;
 
@@ -49,7 +49,7 @@ export async function generateMetadata({
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: `WorkplaceEscape Result: ${content.title}`,
+          alt: `Do I Love My Job? Result: ${content.title}`,
         },
       ],
       type: "website",

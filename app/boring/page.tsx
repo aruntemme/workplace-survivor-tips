@@ -35,7 +35,7 @@ export default function BoringPage() {
       >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-lg font-semibold text-gray-600 hover:text-gray-800 transition-colors">
-            WorkplaceEscape
+            Do I Love My Job?
           </Link>
           <Link
             href="/quiz"
