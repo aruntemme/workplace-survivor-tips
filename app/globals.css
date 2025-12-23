@@ -120,6 +120,73 @@ body {
     background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
   }
 
+  /* Work Wrap - Spotify-inspired dark theme */
+  .wrap-bg {
+    background: linear-gradient(180deg, #121212 0%, #1a1a2e 100%);
+  }
+
+  .wrap-bg-alt {
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  }
+
+  /* Work Wrap persona gradients - vibrant cards on dark bg */
+  .wrap-gradient-green {
+    background: linear-gradient(135deg, #1DB954 0%, #1ed760 50%, #169c46 100%);
+  }
+
+  .wrap-gradient-yellow {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #d97706 100%);
+  }
+
+  .wrap-gradient-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #2563eb 100%);
+  }
+
+  .wrap-gradient-purple {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #7c3aed 100%);
+  }
+
+  .wrap-gradient-orange {
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #ea580c 100%);
+  }
+
+  .wrap-gradient-pink {
+    background: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #db2777 100%);
+  }
+
+  /* Work Wrap stat card gradients */
+  .wrap-stat-gradient-1 {
+    background: linear-gradient(135deg, #1DB954 0%, #191414 100%);
+  }
+
+  .wrap-stat-gradient-2 {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  }
+
+  .wrap-stat-gradient-3 {
+    background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  }
+
+  .wrap-stat-gradient-4 {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  }
+
+  /* Work Wrap glass effect for dark bg */
+  .wrap-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Work Wrap text styles */
+  .wrap-text-gradient {
+    background: linear-gradient(135deg, #1DB954 0%, #1ed760 50%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   /* Text gradient */
   .text-gradient {
     background: linear-gradient(135deg, #a855f7 0%, #f43f5e 50%, #0ea5e9 100%);

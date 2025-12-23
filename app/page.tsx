@@ -4,10 +4,28 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
+import { WRAP_YEAR } from "@/lib/wrap/constants";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen gradient-bg flex flex-col">
+      {/* Work Wrap Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-gradient-to-r from-[#121212] to-[#1a1a2e] text-white py-3 px-4"
+      >
+        <Link href="/wrap" className="block max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-3 text-sm">
+            <span className="text-green-400 font-bold">NEW</span>
+            <span>
+              Work Wrap {WRAP_YEAR} is here! Your year in corporate, quantified.
+            </span>
+            <span className="text-green-400">→</span>
+          </div>
+        </Link>
+      </motion.div>
+
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
